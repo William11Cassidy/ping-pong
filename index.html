@@ -15,9 +15,27 @@
 
     </head>
     <body background="background1.jpg">
-        <button onclick="start()">Start</button>
+        <h3>AI PING PONG</h3>
+        <button class="btn btn-success" onclick="startgame()" id="start">Play Game</button>
+        <br>
+        <br>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Instructions </button>
 <center>
-
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <Button class="close" data-dismiss="modal">&times;</Button>
+              <h4>Instructions</h4>
+            </div>
+            <div class="modal-body">
+              <img src="jump.png" class="instruction_image">
+              <img src="left.png" class="instruction_image">
+              <img src="right.png" class="instruction_image">
+            </div>
+          </div>
+        </div>
+      </div>
 </center>
         <script src="main.js"></script>
     </body>
