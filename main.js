@@ -23,13 +23,28 @@ var ball = {
 
 function setup(){
   var canvas =  createCanvas(700,600);
+  video=createCapture(VIDEO)
+  video.hide()
+  canvas.parent("game_console")
+  posenet=ml5.poseNet(video,modelloaded)
+  posenet.on("pose",gotposes)
 }
 
+function modelloaded(){
+console.log("modelisloaded");
+}
+rw=""
+function gotposes(results){
+if (results.length>0) {
+  
+  rw=results[0].pose.rightWrist.y
+}
+}
 
 function draw(){
 
  background(0); 
-
+image(video,0,0,700,600)
  fill("black");
  stroke("black");
  rect(680,0,20,700);
@@ -45,7 +60,7 @@ function draw(){
    fill(250,0,0);
     stroke(0,0,250);
     strokeWeight(0.5);
-   paddle1Y = mouseY; 
+   paddle1Y = rw; 
    rect(paddle1X,paddle1Y,paddle1,paddle1Height,100);
    
    
